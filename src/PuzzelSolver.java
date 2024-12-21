@@ -25,4 +25,20 @@ public class PuzzleSolver {
 
         return Collections.singletonList("Path not found.");
     }
+
+    private List<String> reconstructPath(Map<GridPosition, GridPosition> ancestry, GridPosition start, GridPosition goal) {
+        LinkedList<String> route = new LinkedList<>();
+        GridPosition step = goal;
+
+        while (step != null && !step.equals(start)) {
+            GridPosition prior = ancestry.get(step);
+            String movement = describeMovement(prior, step);
+            route.addFirst(movement);
+            step = prior;
+        }
+        route.addFirst("Commence at " + start);
+        route.add("Terminate!");
+
+        return route;
+    }
 }
