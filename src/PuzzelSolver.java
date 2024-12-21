@@ -41,4 +41,12 @@ public class PuzzleSolver {
 
         return route;
     }
+
+    private String describeMovement(GridPosition from, GridPosition to) {
+        if (from.getX() == to.getX()) {
+            return "Move " + (from.getY() < to.getY() ? "right" : "left") + " to " + to;
+        } else {
+            return "Move " + (from.getX() < to.getX() ? "down" : "up") + " to " + to;
+        }
+    }
 }
