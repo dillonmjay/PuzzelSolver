@@ -34,4 +34,8 @@ public class GridPosition {
         return 31 * x + y;
     }
 
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }
