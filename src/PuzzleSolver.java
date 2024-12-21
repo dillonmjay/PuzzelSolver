@@ -1,8 +1,6 @@
-
 import java.util.*;
 
 public class PuzzleSolver {
-
     public List<String> findPath(Map<GridPosition, List<GridPosition>> net, GridPosition start, GridPosition goal) {
         Queue<GridPosition> frontier = new LinkedList<>();
         Map<GridPosition, GridPosition> ancestry = new HashMap<>();

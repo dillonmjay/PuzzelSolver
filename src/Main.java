@@ -1,10 +1,8 @@
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-
     public static void main(String[] args) {
         File folder = new File("test"); // Directory containing the puzzle files
         File[] listOfFiles = folder.listFiles((d, name) -> name.endsWith(".txt"));

@@ -1,8 +1,8 @@
-
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class MapDecoder {
-
     private Map<GridPosition, List<GridPosition>> graph = new HashMap<>();
     private GridPosition entry = null;
     private GridPosition exit = null;
@@ -30,12 +30,8 @@ public class MapDecoder {
                 if (grid[i][j] != '0') {
                     GridPosition pos = new GridPosition(i, j);
                     graph.put(pos, new ArrayList<>());
-                    if (grid[i][j] == 'S') {
-                        entry = pos;
-                    }
-                    if (grid[i][j] == 'F') {
-                        exit = pos;
-                    }
+                    if (grid[i][j] == 'S') entry = pos;
+                    if (grid[i][j] == 'F') exit = pos;
                 }
             }
         }
@@ -43,18 +39,10 @@ public class MapDecoder {
         for (GridPosition pos : graph.keySet()) {
             int i = pos.getX();
             int j = pos.getY();
-            if (i > 0 && grid[i - 1][j] != '0') {
-                graph.get(pos).add(new GridPosition(i - 1, j));
-            }
-            if (j > 0 && grid[i][j - 1] != '0') {
-                graph.get(pos).add(new GridPosition(i, j - 1));
-            }
-            if (i < content.size() - 1 && grid[i + 1][j] != '0') {
-                graph.get(pos).add(new GridPosition(i + 1, j));
-            }
-            if (j < maxWidth - 1 && grid[i][j + 1] != '0') {
-                graph.get(pos).add(new GridPosition(i, j + 1));
-            }
+            if (i > 0 && grid[i-1][j] != '0') graph.get(pos).add(new GridPosition(i-1, j));
+            if (j > 0 && grid[i][j-1] != '0') graph.get(pos).add(new GridPosition(i, j-1));
+            if (i < content.size() - 1 && grid[i+1][j] != '0') graph.get(pos).add(new GridPosition(i+1, j));
+            if (j < maxWidth - 1 && grid[i][j+1] != '0') graph.get(pos).add(new GridPosition(i, j+1));
         }
 
         if (entry == null || exit == null) {

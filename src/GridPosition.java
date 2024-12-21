@@ -1,6 +1,4 @@
-
 public class GridPosition {
-
     private int x; // Row index
     private int y; // Column index
 
@@ -19,12 +17,8 @@ public class GridPosition {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         GridPosition that = (GridPosition) obj;
         return x == that.x && y == that.y;
     }
