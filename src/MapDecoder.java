@@ -63,4 +63,11 @@ public class MapDecoder {
         return graph;
     }
 
+    public GridPosition getEntry() {
+        return entry;
+    }
+
+    public GridPosition getExit() {
+        return exit;
+    }
 }
