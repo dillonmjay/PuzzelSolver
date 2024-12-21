@@ -29,4 +29,13 @@ public class GridPosition {
         return x == that.x && y == that.y;
     }
 
+    @Override
+    public int hashCode() {
+        return 31 * x + y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }
