@@ -61,4 +61,8 @@ public class Main {
             }
         });
     }
+
+    private static String extractPuzzleSize(String filename) {
+        return filename.replaceAll("[^0-9]", "");  // Extracts digits from the filename, assumes format puzzle_N.txt
+    }
 }
